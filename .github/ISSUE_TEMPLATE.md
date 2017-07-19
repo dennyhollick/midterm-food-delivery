@@ -8,6 +8,6 @@
 
 ## Other Info
 
-Context, links to design files, copy needed, prototypes, additional stakeholders, implementation etc.
+Context, links to design files, copy needed, prototypes, additional stakeholders, implementation steps etc.
 
 
