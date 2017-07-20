@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- // Remove the stuff below if it is later included in _header above -->
+    <title>Home Page</title>
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+</head>
+
+<header>
+<% include ./partials/_header %>
+</header>
+
+<body>
+  <section class="col-md-6 col-md-offset-3">
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="text-center">Your Cart</h3>
+        </div>
+        <div class="panel-body">
+          <p class="text-center">Please review your cart before checking out!</p>
+        </div>
+          <table class="table table-striped">
+            <tr>
+              <th>Item</th>
+              <th class="text-right">Qty</th>
+              <th class="text-right">Price</th>
+            </tr>
+            <tr>
+              <td>Sample Item 1</td>
+              <td class="text-right">15</td>
+              <td class="text-right">$15.99</td>
+            </tr>
+            <tr>
+              <td>Sample Item 2</td>
+              <td class="text-right">3</td>
+              <td class="text-right">$4.99</td>
+            </tr>
+          </table>
+          <table class="table" style="width:40%; margin-left: auto;">
+            <tr>
+              <td>Tax</td>
+              <td class="text-right">$2.99</td>
+            </tr>
+            <tr>
+              <th>Total:</th>
+              <th class="text-right">$15.00</th>
+            </tr>
+          </table>
+      </div>
+    </div>
+    <div class="row pull-right">
+        <button type="button" class="btn btn-danger">Clear Cart</button>
+        <button type="button" class="btn btn-success">Checkout</button>
+    </div>
+  </section>
+</body>
+
+</html>
