@@ -1,6 +1,7 @@
 
 $(document).ready(() => {
 
+  // Creates a single menu element for a row
 
   function createItemElement(item) {
     const itemElement =
@@ -31,6 +32,7 @@ $(document).ready(() => {
     return itemElement;
   }
 
+// Creates a row of 2 menu items
 
   function createNewRow(item1, item2) {
     const row =
@@ -49,6 +51,7 @@ $(document).ready(() => {
     return row;
   }
 
+// Logic on how to assemble menu items before rendering
 
   function createMenuItems(items) {
     let menuItems = '';
