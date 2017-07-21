@@ -29,7 +29,7 @@ $(() => {
 
   $('body').on('click', '.add-item', function () {
     let id = $(this).data('id');
-    let count = $(this).parents().next().val();
+    let count = $(this).prev().val();
     helpers.addItems(id, count);
     console.log(currentCart);
   });
