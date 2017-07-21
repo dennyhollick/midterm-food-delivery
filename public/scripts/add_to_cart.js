@@ -8,10 +8,10 @@ $(() => {
     addItems: (id, amount) => {
 
       cart[id] = {
-        amount: amount
+        amount,
       }
 
-      helpers.setCart(cart);
+      helpers.addToCart(cart);
 
     },
 
@@ -19,10 +19,10 @@ $(() => {
 
       delete cart[id]
 
-      helpers.setCart(cart);
+      helpers.addToCart(cart);
     },
 
-    setCart: function (cart) {
+    addToCart: function (cart) {
       window.localStorage.setItem('cart', JSON.stringify(cart));
     }
   };
