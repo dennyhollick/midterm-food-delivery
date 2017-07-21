@@ -6,6 +6,7 @@
   <title>View Cart</title>
   <% include ./partials/_head %>
   <script type="text/javascript" src="/scripts/create_cart.js"></script>
+  <script type="text/javascript" src="/scripts/get_total.js"></script>
 </head>
 
 <header>
@@ -30,15 +31,11 @@
             </tr>
             <!-- new cart items added here --> 
           </table>
-          <table class="table" style="width:40%; margin-left: auto;">
+          <table class="table price" style="width:40%; margin-left: auto;">
             <tr>
-              <td>Tax</td>
-              <td class="text-right">$2.99</td>
+              <td></td>
             </tr>
-            <tr>
-              <th>Total:</th>
-              <th class="text-right">$15.00</th>
-            </tr>
+            <!-- price goes here -->
           </table>
       </div>
     </div>
