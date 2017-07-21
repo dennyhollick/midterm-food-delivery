@@ -49,12 +49,6 @@ app.get("/cart", (req, res) => {
   res.render("cart");
 });
 
-// Post to cart
-
-app.post("/add-dish", (req,res) => {
-  res.redirect("/")
-});
-
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
