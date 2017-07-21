@@ -1,6 +1,5 @@
 
 $(document).ready(() => {
-
   // Creates a single menu element for a row
 
   function createItemElement(item) {
@@ -32,7 +31,7 @@ $(document).ready(() => {
     return itemElement;
   }
 
-// Creates a row of 2 menu items
+  // Creates a row of 2 menu items
 
   function createNewRow(item1, item2) {
     const row =
@@ -51,7 +50,7 @@ $(document).ready(() => {
     return row;
   }
 
-// Logic on how to assemble menu items before rendering
+  // Logic on how to assemble menu items before rendering
 
   function createMenuItems(items) {
     let menuItems = '';
@@ -59,34 +58,29 @@ $(document).ready(() => {
     while (i < items.length) {
       let item1 = '';
       let item2 = '';
-      console.log(`Lenght: ${  items.length}`);
-      console.log(`Doing number${  i  } and next`);
       if (i !== items.length - 1) {
-        console.log('i think there is 2 numbers');
         item1 = createItemElement(items[i]);
         item2 = createItemElement(items[i + 1]);
       } else {
-        console.log('i think there is 1 number left');
         item1 = createItemElement(items[i]);
         item2 = ' ';
       }
       const newRow = createNewRow(item1, item2);
       menuItems += newRow;
       i += 2;
-      console.log(`setting i to: ${  i}`);
     }
     return menuItems;
   }
 
 
   // This makes the request and assembles the menu
+  // TODO: Add a throw err!
 
   $(() => {
     $.ajax({
       method: 'GET',
       url: '/api/menu_items',
     }).done((items) => {
-      console.log(items);
       $('.menu-items').append(createMenuItems(items));
     });
   });
