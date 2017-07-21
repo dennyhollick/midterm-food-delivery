@@ -4,7 +4,7 @@ $(document).ready(() => {
 
   function createItemElement(item) {
     const itemElement =
-        `<div class="col-md-6">
+        `<section class="col-md-6">
           <div class="row">
             <div class="col-md-3">
               <img alt="${item.name}" src="${item.picture}" class="img-rounded img-responsive" />
@@ -27,7 +27,7 @@ $(document).ready(() => {
               </div>
             </div>
           </div>
-        </div>`;
+        </section>`;
     return itemElement;
   }
 
@@ -35,7 +35,7 @@ $(document).ready(() => {
 
   function createNewRow(item1, item2) {
     const row =
-  `<div class="row" style="padding-top: 2em">
+  `<section class="row" style="padding-top: 2em">
     <div class="col-md-1">
     </div>
     <div class="col-md-10">
@@ -46,7 +46,7 @@ $(document).ready(() => {
     </div>
     <div class="col-md-1">
     </div>
-  </div>`;
+  </section>`;
     return row;
   }
 
