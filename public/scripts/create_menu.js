@@ -1,11 +1,5 @@
 
 $(document).ready(() => {
-  const itemslist = [
-    { name: 'Fish Taco', picture: 'http://www.seriouseats.com/recipes/assets_c/2013/07/20130717-fish-tacos-1-thumb-625xauto-340550.jpg', description: 'breaded shrimp and halibut, home made corn tortillas, guacamole, love, White Stilton Gold cheese', price: 14 },
-    { name: 'Cat Taco', picture: 'http://www.seriouseats.com/recipes/assets_c/2013/07/20130717-fish-tacos-1-thumb-625xauto-340550.jpg', description: 'breaded shrimp and halibut, home made corn tortillas, guacamole, love, White Stilton Gold cheese', price: 14 },
-    { name: 'Dog Taco', picture: 'http://www.seriouseats.com/recipes/assets_c/2013/07/20130717-fish-tacos-1-thumb-625xauto-340550.jpg', description: 'breaded shrimp and halibut, home made corn tortillas, guacamole, love, White Stilton Gold cheese', price: 14 },
-    // { name: 'Dog Taco', picture: 'http://www.seriouseats.com/recipes/assets_c/2013/07/20130717-fish-tacos-1-thumb-625xauto-340550.jpg', description: 'breaded shrimp and halibut, home made corn tortillas, guacamole, love, White Stilton Gold cheese', price: 14 },
-  ];
 
 
   function createItemElement(item) {
@@ -13,9 +7,9 @@ $(document).ready(() => {
         `<div class="col-md-6">
           <div class="row">
             <div class="col-md-3">
-              <img alt="${item.name}" src="${item.picture}" />
+              <img alt="${item.name}" src="${item.picture}" class="img-rounded img-responsive" />
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
               <h4 style="margin-top: 0px;">
                 ${item.name}
               </h4>
@@ -23,8 +17,8 @@ $(document).ready(() => {
                 ${item.description}
               </p>
             </div>
-            <div class="col-md-2">
-            <h4 style="margin-top: 0px;">${item.price}</h4>
+            <div class="col-md-3">
+            <h4 style="margin-top: 0px;">$${item.price}</h4>
               <div class="input-group">
                 <span class="input-group-btn">
                   <button class="add-item btn btn-success" data-id="${item.id}" type="button">Add</button>
@@ -40,7 +34,7 @@ $(document).ready(() => {
 
   function createNewRow(item1, item2) {
     const row =
-  `<div class="row">
+  `<div class="row" style="padding-top: 2em">
     <div class="col-md-1">
     </div>
     <div class="col-md-10">
@@ -82,13 +76,14 @@ $(document).ready(() => {
   }
 
 
-  // $('.menu-items').append(createMenuItems(itemslist));
+  // This makes the request and assembles the menu
 
   $(() => {
     $.ajax({
       method: 'GET',
       url: '/api/menu_items',
     }).done((items) => {
+      console.log(items);
       $('.menu-items').append(createMenuItems(items));
     });
   });
