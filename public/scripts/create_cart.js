@@ -3,15 +3,20 @@ $(() => {
   function createItemElements(items) {
     const cartItems = JSON.parse(window.localStorage.getItem('cart'));
     var html = '';
-    for (var id in cartItems) {
-      var itemElement = `
+    for (var cartItemKey of Object.keys(cartItems)) {
+      for (var itemKey of items) {
+        if (cartItemKey == itemKey.id) {
+          const index = Object.keys(cartItems).indexOf(cartItemKey);
+          var itemElement = `
             <tr>
-              <td>${items[id - 1].name}</td>
-              <td class="text-right">${cartItems[id].amount}</td>
-              <td class="text-right">$${items[id - 1].price}</td>
+              <td>${items[index].name}</td>
+              <td class="text-right">${cartItems[cartItemKey].amount}</td>
+              <td class="text-right">$${items[index].price}</td>
             </tr>
         `;
-      html += itemElement;
+          html += itemElement;
+        }
+      }
     }
     return html;
   }
