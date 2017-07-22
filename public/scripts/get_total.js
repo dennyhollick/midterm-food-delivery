@@ -3,11 +3,11 @@ $(() => {
   function getSubTotal(items) {
     const cartItems = JSON.parse(window.localStorage.getItem('cart'));
     let subTotal = 0.00;
-    for (var i of Object.keys(cartItems)) {
-      for (var x of items) {
-        if (i == x.id) {
-          let index = Object.keys(cartItems).indexOf(i);
-          subTotal += items[index].price * cartItems[i].amount;
+    for (var cartItemKey of Object.keys(cartItems)) {
+      for (var itemKey = 0; itemKey < items.length; itemKey++) {
+        if (cartItemKey == items[itemKey].id) {
+          let index = itemKey;
+          subTotal += items[index].price * cartItems[cartItemKey].amount;
         }
       }
     }
