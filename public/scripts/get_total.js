@@ -5,7 +5,7 @@ $(() => {
     let subTotal = 0.00;
     for (var cartItemKey of Object.keys(cartItems)) {
       for (var itemKey = 0; itemKey < items.length; itemKey++) {
-        if (cartItemKey == items[itemKey].id) {
+        if (cartItemKey == items[itemKey].name) {
           let index = itemKey;
           subTotal += items[index].price * cartItems[cartItemKey].amount;
         }
