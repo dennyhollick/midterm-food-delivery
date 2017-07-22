@@ -21,7 +21,7 @@ $(document).ready(() => {
             <h4 style="margin-top: 0px;">$${item.price}</h4>
               <div class="input-group">
                 <span class="input-group-btn">
-                  <button class="add-item btn btn-success" data-id="${item.id}" type="button">Add</button>
+                  <button class="add-item btn btn-success" data-name="${item.name}" type="button">Add</button>
                 </span>
                 <input type="text" class="form-control" placeholder="1" value="1">
               </div>

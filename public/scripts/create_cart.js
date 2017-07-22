@@ -5,7 +5,7 @@ $(() => {
     var html = '';
     for (var cartItemKey of Object.keys(cartItems)) {
       for (var itemKey = 0; itemKey < items.length; itemKey++) {
-        if (cartItemKey == items[itemKey].id) {
+        if (cartItemKey == items[itemKey].name) {
           let index = itemKey;
 
           var itemElement = `
