@@ -4,9 +4,10 @@ $(() => {
     const cartItems = JSON.parse(window.localStorage.getItem('cart'));
     var html = '';
     for (var cartItemKey of Object.keys(cartItems)) {
-      for (var itemKey of items) {
-        if (cartItemKey == itemKey.id) {
-          const index = Object.keys(cartItems).indexOf(cartItemKey);
+      for (var itemKey = 0; itemKey < items.length; itemKey++) {
+        if (cartItemKey == items[itemKey].id) {
+          let index = itemKey;
+
           var itemElement = `
             <tr>
               <td>${items[index].name}</td>
