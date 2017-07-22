@@ -13,9 +13,13 @@ const knexConfig  = require("./knexfile");
 const knex        = require("knex")(knexConfig[ENV]);
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
+const VoiceResponse = require('twilio').twiml.VoiceResponse;
 
 // Seperated Routes for each Resource
-const menuRoutes = require("./routes/menu_items_route")
+const menuRoutes = require("./routes/menu_items_route");
+const twilio = require("./routes/twilio");
+
+
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -52,3 +56,8 @@ app.get("/cart", (req, res) => {
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
+
+// Twilio
+
+app.use("/twilio", twilio);
+
