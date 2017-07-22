@@ -15,7 +15,8 @@ const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 
 // Seperated Routes for each Resource
-const menuRoutes = require("./routes/menu_items_route")
+const menuRoutes = require("./routes/menu_items_route");
+const placeOrder = require("./routes/place_order");
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -37,6 +38,7 @@ app.use(express.static("public"));
 
 // Mount all resource routes
 app.use("/api", menuRoutes(knex));
+app.use(placeOrder(knex));
 
 // Home page
 app.get("/", (req, res) => {
@@ -47,6 +49,12 @@ app.get("/", (req, res) => {
 
 app.get("/cart", (req, res) => {
   res.render("cart");
+});
+
+// Order
+
+app.post("/cart/place_order", (req, res) => {
+  res.redirect("/cart");
 });
 
 app.listen(PORT, () => {

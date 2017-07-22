@@ -7,6 +7,7 @@
   <% include ./partials/_head %>
   <script type="text/javascript" src="/scripts/create_cart.js"></script>
   <script type="text/javascript" src="/scripts/get_total.js"></script>
+  <script type="text/javascript" src="/scripts/order.js"></script>
 </head>
 
 <header>
@@ -39,9 +40,13 @@
           </table>
       </div>
     </div>
-    <div class="row pull-right">
-        <button type="button" class="btn btn-danger">Clear Cart</button>
-        <button type="button" class="btn btn-success">Checkout</button>
+    <div class="row">
+        <button id="test" type="button" class="btn btn-danger pull-right">Clear Cart</button>
+      <form action="/cart/place_order" method="POST" >  
+        <input name="name" placeholder="Name" type="text">
+        <input name="phone" placeholder="Phone Number" type="text">
+        <button type="submit" class="btn btn-success pull-right">Checkout</button>
+      </form>  
     </div>
   </section>
 </body>
