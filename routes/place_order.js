@@ -1,12 +1,12 @@
-"use strict";
+'use strict';
 
 const express = require('express');
+const twilio = require('../server/make_call.js');
 
 const router = express.Router();
 
 module.exports = (knex) => {
-
-  router.post("/cart/place_order", (req, res) => {
+  router.post('/cart/place_order', (req, res) => {
     console.log(req.body);
     knex
       .insert([{
@@ -14,9 +14,12 @@ module.exports = (knex) => {
         phone: JSON.parse(req.body.data).phone,
         cart: JSON.parse(req.body.data).cart,
       }])
-      .into("orders")
-      .then((results) => {})
+      .returning('id')
+      .into('orders')
+      .then((id) => {
+        twilio(id);
+      });
   });
 
   return router;
-}
+};
