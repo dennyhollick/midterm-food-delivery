@@ -24,4 +24,3 @@ module.exports = function (orderId) {
     process.stdout.write(call.sid);
   });
 };
-
