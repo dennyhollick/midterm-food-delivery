@@ -25,4 +25,3 @@ function startCall(orderId) {
   });
 }
 
-startCall(2);
