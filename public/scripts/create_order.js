@@ -13,8 +13,8 @@ $(() => {
   $('body').on('submit', '#order', (e) => {
     e.preventDefault();
     const data = {
-      name: $('#order').find('input[name="name"]').val(),
-      phone: $('#order').find('input[name="phone"]').val(),
+      name: $('.cart-input-name').val(),
+      phone: $('.cart-input-phone').val(),
       cart: items(),
     };
     console.log(data);
