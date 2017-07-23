@@ -15,6 +15,7 @@ const knexLogger = require('knex-logger');
 
 // Seperated Routes for each Resource
 const menuRoutes = require('./routes/menu_items_route');
+const getOrders = require('./routes/orders.js')
 const orderRoutes = require('./routes/place_order.js');
 const twilio = require('./routes/twilio');
 
@@ -40,6 +41,7 @@ app.use(express.static('public'));
 // Mount all resource routes
 app.use('/api', menuRoutes(knex));
 app.use(orderRoutes(knex));
+app.use('/api', getOrders(knex));
 
 // Home page
 app.get('/', (req, res) => {
