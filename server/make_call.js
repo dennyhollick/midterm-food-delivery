@@ -14,7 +14,7 @@ const developmentUrl = process.env.NGROK_DEVELOPMENT_URL;
 
 const client = require('twilio')(accountSid, authToken);
 
-function startCall(orderId) {
+module.exports = function (orderId) {
   client.calls.create({
 
     url: `${developmentUrl}/twilio?order_id=${orderId}`,
@@ -23,5 +23,5 @@ function startCall(orderId) {
   }, (err, call) => {
     process.stdout.write(call.sid);
   });
-}
+};
 
