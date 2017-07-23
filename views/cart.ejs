@@ -4,6 +4,11 @@
 <head>
   <title>View Cart</title>
   <% include ./partials/_head %>
+<<<<<<< HEAD
+  <script type="text/javascript" src="/scripts/create_cart.js"></script>
+  <script type="text/javascript" src="/scripts/get_total.js"></script>
+  <script type="text/javascript" src="/scripts/order.js"></script>
+=======
 
   <style>
     body {
@@ -29,6 +34,7 @@
       left: 5%;
     }
   </style>
+>>>>>>> master
 </head>
 
 <header>
@@ -80,6 +86,17 @@
           </table>
       </div>
     </div>
+<<<<<<< HEAD
+    <div class="row">
+        <button id="test" type="button" class="btn btn-danger pull-right">Clear Cart</button>
+      <form action="/cart/place_order" method="POST" >  
+        <input name="name" placeholder="Name" type="text">
+        <input name="phone" placeholder="Phone Number" type="text">
+        <button type="submit" class="btn btn-success pull-right">Checkout</button>
+      </form>  
+    </div>
+=======
+>>>>>>> master
   </section>
 </body>
 
