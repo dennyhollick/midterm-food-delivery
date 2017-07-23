@@ -2,22 +2,29 @@ $(() => {
 
   function createItemElements(items) {
     const cartItems = JSON.parse(window.localStorage.getItem('cart'));
-    var html = '';
-    for (var cartItemKey of Object.keys(cartItems)) {
-      for (var itemKey = 0; itemKey < items.length; itemKey++) {
-        if (cartItemKey == items[itemKey].id) {
-          let index = itemKey;
+    if (cartItems) {
+      var html = '';
+      for (var cartItemKey of Object.keys(cartItems)) {
+        for (var itemKey = 0; itemKey < items.length; itemKey++) {
+          if (cartItemKey == items[itemKey].name) {
+            let index = itemKey;
 
-          var itemElement = `
+            var itemElement = `
             <tr>
               <td>${items[index].name}</td>
               <td class="text-right">${cartItems[cartItemKey].amount}</td>
               <td class="text-right">$${items[index].price}</td>
             </tr>
         `;
-          html += itemElement;
+            html += itemElement;
+          }
         }
       }
+    } else {
+      var html = `
+      <br>
+      <p class="text-right">Your cart is empty.</p>
+      `;
     }
     return html;
   }

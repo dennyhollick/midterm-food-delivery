@@ -5,7 +5,7 @@ $(document).ready(() => {
   function createItemElement(item) {
     const itemElement =
         `<section class="col-md-6">
-          <div class="row">
+          <div class="row dish">
             <div class="col-md-3">
               <img alt="${item.name}" src="${item.picture}" class="img-rounded img-responsive" />
             </div>
@@ -21,7 +21,7 @@ $(document).ready(() => {
             <h4 style="margin-top: 0px;">$${item.price}</h4>
               <div class="input-group">
                 <span class="input-group-btn">
-                  <button class="add-item btn btn-success" data-id="${item.id}" type="button">Add</button>
+                  <button class="add-item btn btn-success" data-name="${item.name}" type="button">Add</button>
                 </span>
                 <input type="text" class="form-control" placeholder="1" value="1">
               </div>
@@ -39,7 +39,7 @@ $(document).ready(() => {
     <div class="col-md-1">
     </div>
     <div class="col-md-10">
-      <div class="row">
+      <div class="row menu-row">
         ${item1}
         ${item2}
       </div>

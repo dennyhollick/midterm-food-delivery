@@ -2,12 +2,39 @@
 <html lang="en">
 
 <head>
-  <!-- // Remove the stuff below if it is later included in _header above -->
   <title>View Cart</title>
   <% include ./partials/_head %>
+<<<<<<< HEAD
   <script type="text/javascript" src="/scripts/create_cart.js"></script>
   <script type="text/javascript" src="/scripts/get_total.js"></script>
   <script type="text/javascript" src="/scripts/order.js"></script>
+=======
+
+  <style>
+    body {
+      position: relative;
+      top: 100px;
+    }
+    .cart-btn-row {
+      position: relative;
+      left: 35%;
+      padding-bottom: 5px;
+      padding-top: 5px; 
+    }
+    .cart-input {
+      position: relative;
+      left: 5%;
+    }
+    .cart-input-row {
+      position: relative;
+    }
+    .input-table {
+      position: relative;
+      top: 20px;
+      left: 5%;
+    }
+  </style>
+>>>>>>> master
 </head>
 
 <header>
@@ -18,12 +45,15 @@
   <section class="col-md-6 col-md-offset-3">
     <div class="row">
       <div class="panel panel-default">
+
         <div class="panel-heading">
           <h3 class="text-center">Your Cart</h3>
         </div>
+
         <div class="panel-body">
           <p class="text-center">Please review your cart before checking out!</p>
         </div>
+
           <table class="table table-striped cart-items">
             <tr>
               <th>Item</th>
@@ -32,6 +62,22 @@
             </tr>
             <!-- new cart items added here --> 
           </table>
+          
+          <table class="row pull-left input-table">
+            <form action="/cart/place_order" id="order" method="POST">
+              <tr class="cart-input-row">
+                <th>Name: </th>
+                <th><input class="cart-input cart-input-name" name="name" placeholder="Name" type="text"></th>
+                <th class="cart-btn-row pull-right"><button type="button" class="btn btn-danger cart-btn pull-right">Clear Cart</button></th>
+              </tr>
+              <tr class="cart-input-row">
+                <th>Phone Number: </th>
+                <th><input class="cart-input cart-input-phone" name="phone" placeholder="Phone Number" type="text"></th>
+                <th class="cart-btn-row pull-right"><button type="submit" class="checkout-btn btn btn-success pull-right">Checkout</button></th>
+              </tr> 
+            </form>
+          </table>
+
           <table class="table price" style="width:40%; margin-left: auto;">
             <tr>
               <td></td>
@@ -40,6 +86,7 @@
           </table>
       </div>
     </div>
+<<<<<<< HEAD
     <div class="row">
         <button id="test" type="button" class="btn btn-danger pull-right">Clear Cart</button>
       <form action="/cart/place_order" method="POST" >  
@@ -48,6 +95,8 @@
         <button type="submit" class="btn btn-success pull-right">Checkout</button>
       </form>  
     </div>
+=======
+>>>>>>> master
   </section>
 </body>
 

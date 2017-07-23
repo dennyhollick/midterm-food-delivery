@@ -5,9 +5,9 @@ $(() => {
 
   const helpers = {
 
-    addItems: (id, amount) => {
+    addItems: (name, amount) => {
 
-      cart[id] = {
+      cart[name] = {
         amount,
       }
 
@@ -28,9 +28,9 @@ $(() => {
   };
 
   $('body').on('click', '.add-item', function () {
-    let id = $(this).data('id');
+    let name = $(this).data('name');
     let count = $(this).parent().next().val();
-    helpers.addItems(id, count);
+    helpers.addItems(name, count);
     console.log(currentCart);
   });
 })
