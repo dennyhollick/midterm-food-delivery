@@ -1,8 +1,7 @@
 exports.up = function (knex, Promise) {
   return Promise.all([
     knex.schema.table('orders', function (table) {
-      table.dropColumn('phone');
-      table.string('phone');
+      table.string('phone').alter();
     }),
   ]);
 };
@@ -10,8 +9,7 @@ exports.up = function (knex, Promise) {
 exports.down = function (knex, Promise) {
   return Promise.all([
     knex.schema.table('orders', function (table) {
-      table.integer('phone');
-      table.dropColumn('phone');
+      table.integer('phone').alter();
     }),
   ]);
 };
