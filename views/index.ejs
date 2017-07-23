@@ -6,20 +6,39 @@
   <% include ./partials/_head %>
 
 <style>
+  .banner {
+    /* background: url('https://www.scandichotels.com/imagevault/publishedmedia/qn6infvg30381stkubky/scandic-sundsvall-city-restaurant-verket-10.jpg') no-repeat top center; 
+    background-size: 100%;  */
+    height: 100vh; 
+    position: relative;
+    top: 20px;
+    z-index: -1;
+  }
   .hero-img {
     background: url('https://www.scandichotels.com/imagevault/publishedmedia/qn6infvg30381stkubky/scandic-sundsvall-city-restaurant-verket-10.jpg') no-repeat top center; 
-    background-size: 100%; 
-    height: 1006px; 
-    z-index: 5
+    background-size: 100%;     
+    position: fixed;
+    width: 100%; 
+    z-index: -1;
   }
   .menu-items {
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     margin-left: 150px;
     margin-right: 150px;
+    position: relative;
+    z-index: 10;
+  }
+  .menu-page {
+    background: white;
+    position: relative;
+    z-index: 10;
+    padding-bottom: 40px;
   }
   .menu-title {
     padding-bottom: 30px;
     padding-top: 20px;
+    position: relative;
+    top: 20px;
   }
   #menu {
     background-color: rgb(255, 255, 255);
@@ -35,7 +54,19 @@
         left: -100px;
       }
   }
-
+  .footer {
+  background-color:black;
+  height: 100px;
+  z-index: 5;
+  position: relative;
+  }
+  .footer-text {
+    color: white;
+    font-size: 2.0em;
+    position: relative;
+    right: 8%;
+    top: 2%;
+  }
 </style>
 
 </head>
@@ -45,22 +76,25 @@
     <% include partials/_header %>
   </header>  
 
-  <div class="hero-img"></div>
+  <div class="banner">
+    <div class="hero-img"></div>
+  </div>
 
-    <section id="menu"></section>  
+  <section id="menu"></section>  
 
-  <section class="container-fluid">
+  <section class="container-fluid menu-page">
     <div class="row">
       <div class="col-md-12 text-center">
         <h1 class="menu-title">Our Menu</h1>
       </div>
     </div>
-    <div class="menu-items jumbotron">
+    <div class="menu-items">
       <!-- Menu items get appended here-->
     </div>
   </section>
 
   <footer>
+    <% include ./partials/_footer %>
   </footer>
 
 </body>
