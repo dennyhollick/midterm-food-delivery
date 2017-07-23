@@ -3,8 +3,7 @@ $(() => {
     window.localStorage.clear('cart');
     location.reload();
   });
-
-  $('.checkout-btn').on('click', () => {
-    window.location.replace('/order');
+  $('.return').on('click', () => {
+    window.localStorage.clear('cart');
   });
 });
