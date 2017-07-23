@@ -1,8 +1,11 @@
 const express = require('express');
 
+const ENV = process.env.ENV || 'development';
 const router = express.Router();
 const VoiceResponse = require('twilio').twiml.VoiceResponse;
 const urlencoded = require('body-parser').urlencoded;
+const knexConfig = require('../knexfile');
+const knex = require('knex')(knexConfig[ENV]);
 
 router.use(urlencoded({ extended: false }));
 
@@ -46,9 +49,13 @@ function formatIndividualOrderList(orderList) {
   return allFormattedItems;
 }
 
+function callOrderFromDB(orderId) {
+  router.get('/orders/{$orderId}', (req, res) => console.log(res));
+}
+
 
 function GetOrderDetails(orderId) {
-  const allOrderDetails = ordersDB[orderId];
+  const allOrderDetails = callOrderFromDB(orderId);
   const nameFormattedForTwiml = (allOrderDetails.name).split(' ').join(',');
   const phoneFormattedForTwiml = (allOrderDetails.phone).split('').join(',');
   const orderFormattedForTwiml = formatIndividualOrderList(allOrderDetails.orderList);
@@ -155,3 +162,5 @@ router.post('/accepted', (req, res) => {
 });
 
 module.exports = router;
+
+callOrderFromDB(1);
