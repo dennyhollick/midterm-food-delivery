@@ -15,7 +15,7 @@ const knexLogger = require('knex-logger');
 
 // Seperated Routes for each Resource
 const menuRoutes = require('./routes/menu_items_route');
-const getOrders = require('./routes/orders.js')
+const getOrders = require('./routes/orders.js');
 const orderRoutes = require('./routes/place_order.js');
 const twilio = require('./routes/twilio');
 
@@ -52,6 +52,10 @@ app.get('/', (req, res) => {
 
 app.get('/cart', (req, res) => {
   res.render('cart');
+});
+
+app.get('/order', (req, res) => {
+  res.render('order');
 });
 
 // Order
