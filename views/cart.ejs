@@ -5,6 +5,12 @@
   <title>View Cart</title>
   <% include ./partials/_head %>
 
+  <style>
+    body {
+      position: relative;
+      top: 100px;
+    }
+  </style>
 </head>
 
 <header>
@@ -29,6 +35,17 @@
             </tr>
             <!-- new cart items added here --> 
           </table>
+               <div class="row pull-left">
+                <button type="button" class="btn btn-danger cart-btn pull-right">Clear Cart</button>
+                <br>
+                <br>
+                <form action="/cart/place_order" id="order" method="POST">  
+                  <button type="submit" class="btn btn-success cart-btn pull-right">Checkout</button>
+                  <input name="name" placeholder="Name" type="text">
+                  <br>
+                  <input name="phone" placeholder="Phone Number" type="text">
+                </form>
+              </div> 
           <table class="table price" style="width:40%; margin-left: auto;">
             <tr>
               <td></td>
@@ -36,14 +53,6 @@
             <!-- price goes here -->
           </table>
       </div>
-    </div>
-    <div class="row pull-right">
-        <button type="button" class="btn btn-danger">Clear Cart</button>
-      <form action="/cart/place_order" id="order" method="POST">  
-        <button type="submit" class="btn btn-success">Checkout</button>
-        <input name="name" placeholder="Name" type="text">
-        <input name="phone" placeholder="Phone Number" type="text">
-      </form>  
     </div>
   </section>
 </body>

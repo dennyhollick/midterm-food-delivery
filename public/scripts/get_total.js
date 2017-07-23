@@ -1,21 +1,24 @@
 $(() => {
+  const cartItems = JSON.parse(window.localStorage.getItem('cart'));
 
   function getSubTotal(items) {
-    const cartItems = JSON.parse(window.localStorage.getItem('cart'));
-    let subTotal = 0.00;
-    for (var cartItemKey of Object.keys(cartItems)) {
-      for (var itemKey = 0; itemKey < items.length; itemKey++) {
-        if (cartItemKey == items[itemKey].name) {
-          let index = itemKey;
-          subTotal += items[index].price * cartItems[cartItemKey].amount;
+    if (cartItems) {
+      let subTotal = 0.00;
+      for (var cartItemKey of Object.keys(cartItems)) {
+        for (var itemKey = 0; itemKey < items.length; itemKey++) {
+          if (cartItemKey == items[itemKey].name) {
+            let index = itemKey;
+            subTotal += items[index].price * cartItems[cartItemKey].amount;
+          }
         }
       }
+      return subTotal;
     }
-    return subTotal;
   }
 
   function createPriceElement(items) {
-    var html = `
+    if (cartItems) {
+      var html = `
 			<tr id="subtotal">
 				<td>Subtotal</td>
 				<td class="text-right">$${(getSubTotal(items)).toFixed(2)}</td>
@@ -29,9 +32,9 @@ $(() => {
 				<td class="text-right">$${(getSubTotal(items) * 1.05).toFixed(2)}</td>
 			</tr>
 		`
-    return html;
+      return html;
+    }
   }
-
   $.ajax({
     method: 'GET',
     url: '/api/menu_items',
