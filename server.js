@@ -15,6 +15,7 @@ const knexLogger = require('knex-logger');
 
 // Seperated Routes for each Resource
 const menuRoutes = require('./routes/menu_items_route');
+const orderRoutes = require('./routes/place_order.js');
 const twilio = require('./routes/twilio');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -57,11 +58,11 @@ app.post('/cart/place_order', (req, res) => {
   res.redirect('/cart');
 });
 
-app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
-});
-
 // Twilio
 
 app.use('/twilio', twilio);
+
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`);
+});
 
