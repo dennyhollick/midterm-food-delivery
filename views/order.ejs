@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>View Cart</title>
+  <% include ./partials/_head %>
+
+  <style>
+    body {
+      position: relative;
+      top: 100px;
+    }
+  </style>
+</head>
+
+<header>
+  <% include ./partials/_header %>
+</header>
+
+<body>
+  <section class="col-md-6 col-md-offset-3">
+    <div class="row">
+      <div class="panel panel-default">
+
+        <div class="panel-heading">
+          <h3 class="text-center">Your Cart</h3>
+        </div>
+
+        <div class="panel-body">
+          <p class="text-center thank-you">Thank you for choosing Eatr!</p>
+          <p class="text-center">Here is your order!</p>
+        </div>
+
+          <table class="table table-striped cart-items">
+            <tr>
+              <th>Item</th>
+              <th class="text-right">Qty</th>
+              <th class="text-right">Price</th>
+            </tr>
+            <!-- new cart items added here --> 
+          </table>
+
+          <table class="table price" style="width:40%; margin-left: auto;">
+            <tr>
+              <td></td>
+            </tr>
+            <!-- price goes here -->
+          </table>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

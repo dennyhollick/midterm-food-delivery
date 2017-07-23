@@ -12,6 +12,10 @@ $(() => {
   
   $('body').on('submit', '#order', (e) => {
     e.preventDefault();
+    if (!($('.cart-input-name').val()) || !($('.cart-input-phone').val())) {
+      alert('Invalid Name or Number. \n Please try again.');
+      return;
+    }
     const data = {
       name: $('.cart-input-name').val(),
       phone: $('.cart-input-phone').val(),

@@ -54,6 +54,10 @@ app.get('/cart', (req, res) => {
   res.render('cart');
 });
 
+app.get('/order', (req, res) => {
+  res.render('order');
+});
+
 // Order
 
 app.post('/cart/place_order', (req, res) => {

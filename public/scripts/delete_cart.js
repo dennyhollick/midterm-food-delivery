@@ -5,6 +5,6 @@ $(() => {
   });
 
   $('.checkout-btn').on('click', () => {
-    location.reload();
+    window.location.replace('/order');
   });
 });
