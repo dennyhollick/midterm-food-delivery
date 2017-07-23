@@ -59,16 +59,18 @@
           </table>
           
           <table class="row pull-left input-table">
-            <tr class="cart-input-row">
-              <th>Name: </th>
-              <th><input class="cart-input" name="name" placeholder="Name" type="text"></th>
-              <th class="cart-btn-row pull-right"><button type="button" class="btn btn-danger cart-btn pull-right">Clear Cart</button></th>
-            </tr>
-            <tr class="cart-input-row">
-              <th>Phone Number: </th>
-              <th><input class="cart-input" name="phone" placeholder="Phone Number" type="text"></th>
-              <th class="cart-btn-row pull-right"><button type="submit" class="btn btn-success cart-btn pull-right">Checkout</button></th>
-            </tr>
+            <form action="/cart/place_order" id="order" method="POST">
+              <tr class="cart-input-row">
+                <th>Name: </th>
+                <th><input class="cart-input" name="name" placeholder="Name" type="text"></th>
+                <th class="cart-btn-row pull-right"><button type="button" class="btn btn-danger cart-btn pull-right">Clear Cart</button></th>
+              </tr>
+              <tr class="cart-input-row">
+                <th>Phone Number: </th>
+                <th><input class="cart-input" name="phone" placeholder="Phone Number" type="text"></th>
+                <th class="cart-btn-row pull-right"><button type="submit" class="btn btn-success cart-btn pull-right">Checkout</button></th>
+              </tr> 
+            </form>
           </table>
 
           <table class="table price" style="width:40%; margin-left: auto;">
