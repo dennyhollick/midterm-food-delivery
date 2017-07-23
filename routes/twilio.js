@@ -1,4 +1,5 @@
 const express = require('express');
+
 const router = express.Router();
 const VoiceResponse = require('twilio').twiml.VoiceResponse;
 const urlencoded = require('body-parser').urlencoded;
@@ -103,7 +104,6 @@ router.post('/voice', (req, res) => {
 router.post('/gather', (req, res) => {
   const orderID = req.query.order_id;
   const twiml = new VoiceResponse();
-  console.log(req.body);
 
   // If the user entered digits, process their request
   if (req.body.Digits) {
@@ -155,5 +155,3 @@ router.post('/accepted', (req, res) => {
 });
 
 module.exports = router;
-
-GetOrderDetails(1);
