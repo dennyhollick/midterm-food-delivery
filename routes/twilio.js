@@ -9,70 +9,38 @@ const knex = require('knex')(knexConfig[ENV]);
 
 router.use(urlencoded({ extended: false }));
 
-const ordersDB = [
-  {
-    name: 'John Doe Dude',
-    phone: '6046661258',
-    orderList: {
-      Coke: 2,
-      alPastor: 2,
-      Horchata: 2,
-    },
-  },
-  {
-    name: 'Cool Guy Bow',
-    phone: '6046661258',
-    orderList: {
-      Coke: 2,
-      alPastor: 2,
-      Horchata: 2,
-    },
-  },
-  {
-    name: 'Random Jerry',
-    phone: '6046661258,',
-    orderList: {
-      'Mexican Coke': 2,
-      'Al Pastor': 2,
-      Horchata: 2,
-    },
-  },
-];
-
-
 function formatIndividualOrderList(orderList) {
   let allFormattedItems = '';
-  for (const orderItem in orderList) {
-    const formattedItem = `${orderList[orderItem]},${orderItem},,,`;
+  const parsedList = JSON.parse(orderList);
+  for (const orderItem in parsedList) {
+    const formattedItem = `${parsedList[orderItem]}, ${orderItem},,`;
     allFormattedItems += formattedItem;
   }
   return allFormattedItems;
 }
 
-function callOrderFromDB(orderId) {
-  router.get('/orders/{$orderId}', (req, res) => console.log(res));
-}
-
-
-function GetOrderDetails(orderId) {
-  const allOrderDetails = callOrderFromDB(orderId);
-  const nameFormattedForTwiml = (allOrderDetails.name).split(' ').join(',');
-  const phoneFormattedForTwiml = (allOrderDetails.phone).split('').join(',');
-  const orderFormattedForTwiml = formatIndividualOrderList(allOrderDetails.orderList);
-  const orderObjFormattedforTwiml = {
+function formatOrderDetailsForTwiml(order) {
+  console.log(order);
+  console.log('5: Formatting Results');
+  const nameFormattedForTwiml = (order.name).split(' ').join(',');
+  console.log(`Formatted name to: ${nameFormattedForTwiml}`);
+  const phoneFormattedForTwiml = (order.phone).split('').join(',');
+  console.log(`Formatted phone to: ${phoneFormattedForTwiml}`);
+  const orderFormattedForTwiml = formatIndividualOrderList(order.cart);
+  console.log(`Formatted order to: ${orderFormattedForTwiml}`);
+  const NewObjFormattedforTwiml = {
+    id: order.id,
     name: nameFormattedForTwiml,
     phone: phoneFormattedForTwiml,
     orderList: orderFormattedForTwiml,
   };
-  return orderObjFormattedforTwiml;
+  console.log('Created a new object');
+  return NewObjFormattedforTwiml;
 }
 
-
-router.post('/', (req, res) => {
-  const orderID = req.query.order_id;
-  const order = GetOrderDetails(orderID);
+function createCallXml(order) {
+  console.log('Rendering XML...');
   const twiml = new VoiceResponse();
-
   twiml.pause();
   twiml.say({ voice: 'man' }, `order from ${order.name}`);
   twiml.pause();
@@ -80,10 +48,37 @@ router.post('/', (req, res) => {
   twiml.pause();
   twiml.say({ voice: 'man' }, `They would like, ${order.orderList},`);
   twiml.pause();
-  twiml.redirect(`/twilio/voice?order_id=${orderID}`);
-  // Render the response as XML in reply to the webhook request
-  res.type('text/xml');
-  res.send(twiml.toString());
+  twiml.redirect(`/twilio/voice?order_id=${order.id}`);
+    // Render the response as XML in reply to the webhook request
+  return twiml.toString();
+}
+
+function callOrderFromDb(orderId, res) {
+  console.log(`3: Looking at the DB for the order: ${orderId}`);
+  knex
+      .select('*')
+      .from('orders')
+      .where('id', orderId)
+      .then((results) => {
+        console.log('4: I found the results');
+        const resultsObject = results[0];
+        const formattedObjForTwml = formatOrderDetailsForTwiml(resultsObject);
+        console.log('6: New object recieved!');
+        const callXML = createCallXml(formattedObjForTwml);
+        console.log('7:created XML');
+        console.log(callXML);
+        res.type('text/xml');
+        res.send(callXML.toString());
+      });
+}
+
+// XML Routes for calls
+
+router.post('/', (req, res) => {
+  const orderId = req.query.order_id;
+  console.log(`1: new order from ${orderId}`);
+  console.log('2: Going to make the request');
+  callOrderFromDb(orderId, res);
 });
 
 router.post('/voice', (req, res) => {
@@ -162,5 +157,3 @@ router.post('/accepted', (req, res) => {
 });
 
 module.exports = router;
-
-callOrderFromDB(1);
