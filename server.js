@@ -38,6 +38,7 @@ app.use(express.static('public'));
 
 // Mount all resource routes
 app.use('/api', menuRoutes(knex));
+app.use(orderRoutes(knex));
 
 // Home page
 app.get('/', (req, res) => {
@@ -48,6 +49,12 @@ app.get('/', (req, res) => {
 
 app.get('/cart', (req, res) => {
   res.render('cart');
+});
+
+// Order
+
+app.post('/cart/place_order', (req, res) => {
+  res.redirect('/cart');
 });
 
 app.listen(PORT, () => {
