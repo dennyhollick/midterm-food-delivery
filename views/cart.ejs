@@ -10,6 +10,25 @@
       position: relative;
       top: 100px;
     }
+    .cart-btn-row {
+      position: relative;
+      left: 100px;
+      padding-bottom: 5px;
+      padding-top: 5px; 
+    }
+    .cart-input {
+      position: relative;
+      left: 40px;
+    }
+    .cart-input-row {
+      position: relative;
+      
+    }
+    .input-table {
+      position: relative;
+      top: 20px;
+      left: 60px;
+    }
   </style>
 </head>
 
@@ -21,12 +40,15 @@
   <section class="col-md-6 col-md-offset-3">
     <div class="row">
       <div class="panel panel-default">
+
         <div class="panel-heading">
           <h3 class="text-center">Your Cart</h3>
         </div>
+
         <div class="panel-body">
           <p class="text-center">Please review your cart before checking out!</p>
         </div>
+
           <table class="table table-striped cart-items">
             <tr>
               <th>Item</th>
@@ -35,17 +57,20 @@
             </tr>
             <!-- new cart items added here --> 
           </table>
-               <div class="row pull-left">
-                <button type="button" class="btn btn-danger cart-btn pull-right">Clear Cart</button>
-                <br>
-                <br>
-                <form action="/cart/place_order" id="order" method="POST">  
-                  <button type="submit" class="btn btn-success cart-btn pull-right">Checkout</button>
-                  <input name="name" placeholder="Name" type="text">
-                  <br>
-                  <input name="phone" placeholder="Phone Number" type="text">
-                </form>
-              </div> 
+          
+          <table class="row pull-left input-table">
+            <tr class="cart-input-row">
+              <th>Name: </th>
+              <th><input class="cart-input" name="name" placeholder="Name" type="text"></th>
+              <th class="cart-btn-row pull-right"><button type="button" class="btn btn-danger cart-btn pull-right">Clear Cart</button></th>
+            </tr>
+            <tr class="cart-input-row">
+              <th>Phone Number: </th>
+              <th><input class="cart-input" name="phone" placeholder="Phone Number" type="text"></th>
+              <th class="cart-btn-row pull-right"><button type="submit" class="btn btn-success cart-btn pull-right">Checkout</button></th>
+            </tr>
+          </table>
+
           <table class="table price" style="width:40%; margin-left: auto;">
             <tr>
               <td></td>
