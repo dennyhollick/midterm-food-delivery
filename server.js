@@ -1,23 +1,22 @@
-"use strict";
-
 require('dotenv').config();
 
-const PORT        = process.env.PORT || 8080;
-const ENV         = process.env.ENV || 'development';
-const express     = require('express');
-const bodyParser  = require('body-parser');
-const sass        = require('node-sass-middleware');
+const PORT = process.env.PORT || 8080;
+const ENV = process.env.ENV || 'development';
+const express = require('express');
+const bodyParser = require('body-parser');
+const sass = require('node-sass-middleware');
 
-const app         = express();
+const app = express();
 
-const knexConfig  = require('./knexfile');
-const knex        = require('knex')(knexConfig[ENV]);
-const morgan      = require('morgan');
-const knexLogger  = require('knex-logger');
+const knexConfig = require('./knexfile');
+const knex = require('knex')(knexConfig[ENV]);
+const morgan = require('morgan');
+const knexLogger = require('knex-logger');
 
 // Seperated Routes for each Resource
 const menuRoutes = require('./routes/menu_items_route');
 const orderRoutes = require('./routes/place_order.js');
+const twilio = require('./routes/twilio');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -31,8 +30,8 @@ app.use(knexLogger(knex));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/styles', sass({
-  src: __dirname + '/styles',
-  dest: __dirname + '/public/styles',
+  src: `${__dirname}/styles`,
+  dest: `${__dirname}/public/styles`,
   debug: true,
   outputStyle: 'expanded',
 }));
@@ -59,6 +58,11 @@ app.post('/cart/place_order', (req, res) => {
   res.redirect('/cart');
 });
 
+// Twilio
+
+app.use('/twilio', twilio);
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
