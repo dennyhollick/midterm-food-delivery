@@ -1,13 +1,10 @@
-'use strict';
-
 const express = require('express');
 const twilio = require('../server/make_call.js');
 
 const router = express.Router();
 
 module.exports = (knex) => {
-
-  router.post("/cart/place_order", (req, res) => {
+  router.post('/cart/place_order', (req, res) => {
     knex
       .insert([{
         name: JSON.parse(req.body.data).name,
