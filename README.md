@@ -1,6 +1,6 @@
 # Node Skeleton
 
-FILL ME IN!
+Eatr is a food ordering application that uses Twilio to connect customers to the restaraunt. Customers can visit the Eatr site to order food and receive a text to confirm their order and when their order is avaliable for pickup. The restaurant will receive a call when an order is placed which reads out the order and allows the restaurant to confirm or reject the order.
 
 ## Getting Started
 
@@ -25,6 +25,21 @@ THEN start working with your cloned repository:
 10. Visit `http://localhost:8080/`
 11. Test that ngrok is also working by visiting your Ngrok URL.
 
+## Final Product
+!["The main page of Eatr"](asdf)
+!["Our Menu"](asdf)
+!["Your current cart"](asdf)
+
 ## Dependencies
 
-- TO BE UPDATED
+- Body-parser
+- Dotenv
+- Ejs
+- Express
+- Knex
+- Knex-logger
+- Morgan
+- Node-sass-middleware
+- Pg
+- Sweet Alert
+- Twilio
