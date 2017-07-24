@@ -19,13 +19,13 @@ const order = [
   },
 ];
 
-function sendClientNotifications(phone, orderTime) {
+module.exports = function sendClientNotifications(phone, orderTime) {
         // Create options to send the message
   const options = {
-    to: recipient,
+    to: phone,
     from: twilioPhone,
             /* eslint-disable max-len */
-    body: 'Your order has been confirmed! You can pick it up in 30 minutes.',
+    body: `Your order has been confirmed! You can pick it up in ${orderTime} minutes`,
             /* eslint-enable max-len */
   };
 
@@ -41,7 +41,7 @@ function sendClientNotifications(phone, orderTime) {
       console.log(`Confirmed order and sent to ${masked}`);
     }
   });
-}
+};
 
     // Don't wait on success/failure, just indicate all messages have been
     // queued for delivery
@@ -49,4 +49,3 @@ function sendClientNotifications(phone, orderTime) {
   //   callback.call();
   // }
 
-sendClientNotifications(order);
