@@ -51,7 +51,7 @@ THEN start working with your cloned repository:
 - No sanitization or standardization of input text and name from user
 - Cart does not clear if user hits the back button after submitting an order
 - No ability to reject an order
-- HAL 9000 has injected himself into our system and taken it over on the phone call.
+- `HAL 9000` has injected himself into our system and taken it over on the phone call.
 - No web response to user when an restaurant has accepted an order, only by SMS.
 - No logic to handle an undelivered SMS with pickup time. (eg, user is using a landline.)
 
