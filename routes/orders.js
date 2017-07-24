@@ -1,3 +1,5 @@
+// This module is not used, but can be to retrieve all orders.
+
 const express = require('express');
 
 const router = express.Router();
