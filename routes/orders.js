@@ -6,6 +6,7 @@ const router  = express.Router();
 module.exports = (knex) => {
 
   router.get("/orders", (req, res) => {
+    const orderId = req.params.id;
     knex
       .select("*")
       .from("orders")
@@ -13,6 +14,5 @@ module.exports = (knex) => {
         res.json(results);
     });
   });
-
   return router;
 }
