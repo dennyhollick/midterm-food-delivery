@@ -1,29 +1,30 @@
 # Node Skeleton
 
-## Project Setup
-
-1. Create your own empty repo on GitHub
-2. Clone this repository (do not fork)
-  - Suggestion: When cloning, specify a different folder name that is relevant to your project
-3. Remove the git remote: `git remote rm origin`
-4. Add a remote for your origin: `git remote add origin <your github repo URL>`
-5. Push to the new origin: `git push -u origin master`
-6. Verify that the skeleton code now shows up in your repo on GitHub
+FILL ME IN!
 
 ## Getting Started
 
-1. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
-2. Update the .env file with your correct local information
-3. Install dependencies: `npm i`
-4. Fix to binaries for sass: `npm rebuild node-sass`
-5. Run migrations: `npm run knex migrate:latest`
-  - Check the migrations folder to see what gets created in the DB
-6. Run the seed: `npm run knex seed:run`
-  - Check the seeds file to see what gets seeded in the DB
-7. Run the server: `npm run local`
-8. Visit `http://localhost:8080/`
+Setup Your Postgress DB to start:
+
+1. From terminal: `psql -U vagrant -d template1`
+2. Then set up a new user and table 
+`CREATE ROLE labber with LOGIN password 'labber';`
+`CREATE DATABASE midterm OWNER labber;`
+
+THEN start working with your cloned repository:
+
+1. Install dependencies: `npm i`
+2. Fix to binaries for sass: `npm rebuild node-sass`
+3. Run migrations: `npm run knex migrate:latest`
+4. Run the seed: `npm run knex seed:run`
+5. To use in a development environment, you'll need to download and instal Ngrok from https://ngrok.com/download
+6. Initialize your ngrok instance by starting the program with `./ngrok http 8080` - Follow ngrok docs to init to this port.
+7. You'll need to sign up for a Twilio trial account at https://www.twilio.com/
+8. Update the .env file with your correct local information that you set up for your database, your ngrok URL, and twilio API info.
+9. Run the server: `npm run local`
+10. Visit `http://localhost:8080/`
+11. Test that ngrok is also working by visiting your Ngrok URL.
 
 ## Dependencies
 
-- Node 5.10.x or above
-- NPM 3.8.x or above
+- TO BE UPDATED
