@@ -1,0 +1,13 @@
+.footer {
+background-color:black;
+height: 100px;
+z-index: 5;
+position: relative;
+  .footer-text {
+    color: white;
+    font-size: 2.0em;
+    position: relative;
+    right: 8%;
+    top: 2%;
+  }
+}    

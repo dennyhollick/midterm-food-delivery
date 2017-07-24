@@ -28,6 +28,7 @@ $(() => {
   };
 
   $('body').on('click', '.add-item', function () {
+    alert('Item added.');
     let name = $(this).data('name');
     let count = $(this).parent().next().val();
     helpers.addItems(name, count);

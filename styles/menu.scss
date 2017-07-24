@@ -1,0 +1,47 @@
+#block {
+  background-color: white;
+  height: 100vh;
+  opacity: 0;
+  position: relative;
+  top: -50px;
+  z-index: 10;
+}
+.container {
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+}
+#the-menu {
+  position: relative;
+  top: -50px;
+}
+div .menu-page {
+  background: white;
+  padding-bottom: 40px;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+  div .menu-items {
+    padding-bottom: 20px;
+    margin-left: 150px;
+    margin-right: 150px;
+    position: relative;
+    z-index: 10;
+  }
+  h1 .menu-title {
+    color: #244751;
+    padding-bottom: 30px;
+    padding-top: 20px;
+    position: relative;
+    top: 20px;
+  }
+}
+.col-md-6 h4 {
+  margin-top: 0px;
+}
+
+#menu-row{
+ padding-top: 2em;
+ padding-bottom: 2em;
+}

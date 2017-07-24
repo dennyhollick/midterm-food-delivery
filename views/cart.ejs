@@ -4,31 +4,6 @@
 <head>
   <title>View Cart</title>
   <% include ./partials/_head %>
-
-  <style>
-    body {
-      position: relative;
-      top: 100px;
-    }
-    .cart-btn-row {
-      position: relative;
-      left: 35%;
-      padding-bottom: 5px;
-      padding-top: 5px; 
-    }
-    .cart-input {
-      position: relative;
-      left: 5%;
-    }
-    .cart-input-row {
-      position: relative;
-    }
-    .input-table {
-      position: relative;
-      top: 20px;
-      left: 5%;
-    }
-  </style>
 </head>
 
 <header>
@@ -56,7 +31,7 @@
             </tr>
             <!-- new cart items added here --> 
           </table>
-          
+
           <table class="row pull-left input-table">
             <form action="/cart/place_order" id="order" method="POST">
               <tr class="cart-input-row">
@@ -72,7 +47,7 @@
             </form>
           </table>
 
-          <table class="table price" style="width:40%; margin-left: auto;">
+          <table id="prices" class="table price">
             <tr>
               <td></td>
             </tr>

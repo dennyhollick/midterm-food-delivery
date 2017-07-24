@@ -18,20 +18,20 @@ $(() => {
 
   function createPriceElement(items) {
     if (cartItems) {
-      var html = `
-			<tr id="subtotal">
-				<td>Subtotal</td>
-				<td class="text-right">$${(getSubTotal(items)).toFixed(2)}</td>
-			</tr>
-			<tr id="tax">
-				<td>Tax</td>
-				<td class="text-right">$${(getSubTotal(items) * 0.05).toFixed(2)}</td>
-			</tr>
-			<tr id="total">
-				<th>Total:</th>
-				<td class="text-right">$${(getSubTotal(items) * 1.05).toFixed(2)}</td>
-			</tr>
-		`
+      const html = `
+        <tr id="subtotal">
+          <td>Subtotal</td>
+          <td class="text-right">$${(getSubTotal(items)).toFixed(2)}</td>
+        </tr>
+        <tr id="tax">
+          <td>Tax</td>
+          <td class="text-right">$${(getSubTotal(items) * 0.05).toFixed(2)}</td>
+        </tr>
+        <tr id="total">
+          <th>Total:</th>
+          <td class="text-right">$${(getSubTotal(items) * 1.05).toFixed(2)}</td>
+        </tr>
+      `;
       return html;
     }
   }
