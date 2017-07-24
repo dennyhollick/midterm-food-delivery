@@ -7,18 +7,6 @@ const recipient = process.env.NUMBER_TO_CALL;
 
 const client = require('twilio')(accountSid, authToken);
 
-const order = [
-  {
-    name: 'John Doe',
-    phone: '6046661258',
-    orderlist: {
-      Coke: 2,
-      alPastor: 2,
-      Horchata: 2,
-    },
-  },
-];
-
 module.exports = function sendClientNotifications(phone, orderTime) {
         // Create options to send the message
   const options = {
