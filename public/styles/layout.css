@@ -23,13 +23,17 @@
 
 .cart-table {
   position: relative;
-  top: 200px; }
+  top: 150px; }
 
 .input-table {
   position: relative;
   top: 20px;
   left: 5%;
   z-index: 1; }
+
+.panel {
+  width: 120%;
+  margin-left: -10%; }
 
 #prices {
   width: 40%;
@@ -125,7 +129,7 @@ body {
 
 .order-table {
   position: relative;
-  top: 200px; }
+  top: 150px; }
 
 table .price {
   width: 40%;
