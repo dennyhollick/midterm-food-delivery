@@ -10,7 +10,7 @@ $(document).ready(() => {
               <img alt="${item.name}" src="${item.picture}" class="img-rounded img-responsive" />
             </div>
             <div class="col-md-6">
-              <h4 style="margin-top: 0px;">
+              <h4>
                 ${item.name}
               </h4>
               <p>
@@ -18,7 +18,7 @@ $(document).ready(() => {
               </p>
             </div>
             <div class="col-md-3">
-            <h4 style="margin-top: 0px;">$${item.price}</h4>
+            <h4>$${item.price}</h4>
               <div class="input-group">
                 <span class="input-group-btn">
                   <button class="add-item btn btn-success" data-name="${item.name}" type="button">Add</button>
@@ -35,7 +35,7 @@ $(document).ready(() => {
 
   function createNewRow(item1, item2) {
     const row =
-  `<section class="row" style="padding-top: 2em">
+  `<section id="menu-row" class="row">
     <div class="col-md-1">
     </div>
     <div class="col-md-10">
