@@ -1,15 +1,14 @@
 $(() => {
-
   function createItemElements(items) {
+    let html = '';
     const cartItems = JSON.parse(window.localStorage.getItem('cart'));
     if (cartItems) {
-      var html = '';
-      for (var cartItemKey of Object.keys(cartItems)) {
-        for (var itemKey = 0; itemKey < items.length; itemKey++) {
-          if (cartItemKey == items[itemKey].name) {
-            let index = itemKey;
+      for (const cartItemKey of Object.keys(cartItems)) {
+        for (let itemKey = 0; itemKey < items.length; itemKey += 1) {
+          if (cartItemKey === items[itemKey].name) {
+            const index = itemKey;
 
-            var itemElement = `
+            const itemElement = `
             <tr>
               <td class="item">${items[index].name}</td>
               <td class="text-right">${cartItems[cartItemKey].amount}</td>
@@ -21,12 +20,13 @@ $(() => {
         }
       }
     } else {
-      var html = `
+      html = `
       <br>
       <br>
       <p class="text-right">Your cart is empty.</p>
       <br>
       `;
+      return html;
     }
     return html;
   }
