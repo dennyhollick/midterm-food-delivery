@@ -13,7 +13,8 @@ const knex = require('knex')(knexConfig[ENV]);
 const morgan = require('morgan');
 const knexLogger = require('knex-logger');
 
-// Seperated Routes for each Resource
+// Separated Routes for each Resource
+
 const menuRoutes = require('./routes/menu_items_route');
 const getOrders = require('./routes/orders.js');
 const orderRoutes = require('./routes/place_order.js');
@@ -23,9 +24,11 @@ const twilio = require('./routes/twilio');
 // 'dev' = Concise output colored by response status for development use.
 // The :status token will be colored red for server error codes, yellow for client error codes,
 // cyan for redirection codes, and uncolored for all other codes.
+
 app.use(morgan('dev'));
 
 // Log knex SQL queries to STDOUT as well
+
 app.use(knexLogger(knex));
 
 app.set('view engine', 'ejs');
@@ -39,11 +42,13 @@ app.use('/styles', sass({
 app.use(express.static('public'));
 
 // Mount all resource routes
+
 app.use('/api', menuRoutes(knex));
 app.use(orderRoutes(knex));
 app.use('/api', getOrders(knex));
 
 // Home page
+
 app.get('/', (req, res) => {
   res.render('index');
 });
@@ -54,19 +59,21 @@ app.get('/cart', (req, res) => {
   res.render('cart');
 });
 
-app.get('/order', (req, res) => {
-  res.render('order');
-});
-
-// Order
+// Orders
 
 app.post('/cart/place_order', (req, res) => {
   res.redirect('/cart');
 });
 
+app.get('/order', (req, res) => {
+  res.render('order');
+});
+
 // Twilio
 
 app.use('/twilio', twilio);
+
+// Boot
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
