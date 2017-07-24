@@ -11,10 +11,16 @@
     .cart-input-row {
       position: relative;
     }
+    .block-input {
+      position: relative;
+      top: 200px;
+      z-index: 2;
+    }
     .input-table {
       position: relative;
       top: 20px;
       left: 5%;
+      z-index: 1;
     }
     #prices {
       width:40%; 
