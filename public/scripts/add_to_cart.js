@@ -28,10 +28,11 @@ $(() => {
   };
 
   $('body').on('click', '.add-item', function () {
-    alert('Item added.');
+    swal("Item Added!", "You can add more or go to your cart!", "success");
     let name = $(this).data('name');
     let count = $(this).parent().next().val();
     helpers.addItems(name, count);
     console.log(currentCart);
   });
 })
+

@@ -13,11 +13,11 @@ $(() => {
   $('body').on('submit', '#order', (e) => {
     e.preventDefault();
     if (isNaN(Number($('.cart-input-phone').val()))) {
-      alert('Invalid Phone Number. \nPlease try again.');
+      swal('Invalid Phone Number.', 'Please try again.', 'error');
       return;
     } 
     if (!($('.cart-input-name').val()) || !($('.cart-input-phone').val())) {
-      alert('Invalid Name or Number. \nPlease try again.');
+      swal('Invalid Name or Number.', 'Please try again.', 'error');
       return;
     }
     window.location.replace('/order');
