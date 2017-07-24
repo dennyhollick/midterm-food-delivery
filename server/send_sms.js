@@ -1,3 +1,10 @@
+// This function initiates the sms to the person ordering.
+// Use .env file to store Twilio account credentials and number to call.
+// Number format should be string (eg. '+17789981234')
+// While in development environment, need to download and configure NGROK in order to make
+// the localhost sever availible to the twilio API. Configure URL in .env
+
+
 require('dotenv').config({ path: '../.env' });
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
