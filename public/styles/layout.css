@@ -36,7 +36,7 @@
   margin-left: auto; }
 
 .footer {
-  background-color: black;
+  background-color: #242628;
   height: 100px;
   z-index: 5;
   position: relative; }
@@ -46,6 +46,19 @@
     position: relative;
     right: 8%;
     top: 2%; }
+
+h1 {
+  color: white;
+  font-size: 3.0em; }
+
+title-head {
+  background-color: #242628;
+  position: relative;
+  margin: auto;
+  top: 400px;
+  width: 30%;
+  opacity: 0.8;
+  border-radius: 5px; }
 
 #block {
   background-color: white;
@@ -76,7 +89,7 @@ div .menu-page {
     margin-right: 150px;
     position: relative;
     z-index: 10; }
-  div .menu-page h1 .menu-title {
+  div .menu-page h2 .menu-title {
     color: #244751;
     padding-bottom: 30px;
     padding-top: 20px;

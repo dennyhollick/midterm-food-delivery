@@ -1,3 +1,15 @@
+h1 {
+  color: white;
+  font-size: 3.0em;
+}
+title-head {
+  background-color: #242628; 
+  position: relative; margin: auto; 
+  top: 400px; 
+  width: 30%; 
+  opacity: 0.8; 
+  border-radius: 5px;
+}
 #block {
   background-color: white;
   height: 100vh;
@@ -28,7 +40,7 @@ div .menu-page {
     position: relative;
     z-index: 10;
   }
-  h1 .menu-title {
+  h2 .menu-title {
     color: #244751;
     padding-bottom: 30px;
     padding-top: 20px;
