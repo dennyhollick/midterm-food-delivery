@@ -6,6 +6,7 @@ const VoiceResponse = require('twilio').twiml.VoiceResponse;
 const urlencoded = require('body-parser').urlencoded;
 const knexConfig = require('../knexfile');
 const knex = require('knex')(knexConfig[ENV]);
+const sendText = require('../server/send_sms.js');
 
 router.use(urlencoded({ extended: false }));
 
@@ -69,6 +70,21 @@ function callOrderFromDb(orderId, res) {
         console.log(callXML);
         res.type('text/xml');
         res.send(callXML.toString());
+      });
+}
+
+function GetPhoneFromDbAndSendText(orderId, time) {
+  console.log(`Looking at the DB for the order: ${orderId}`);
+  knex
+      .select('*')
+      .from('orders')
+      .where('id', orderId)
+      .then((results) => {
+        console.log('I found the results');
+        const resultsObject = results[0];
+        const phoneNumber = resultsObject.phone;
+        console.log(phoneNumber);
+        sendText(phoneNumber, time);
       });
 }
 
@@ -139,11 +155,12 @@ router.post('/gather', (req, res) => {
 
 // Route that will handle accepted <Gather> input
 router.post('/accepted', (req, res) => {
-  const orderID = req.query.order_id;
+  const orderId = req.query.order_id;
   const twiml = new VoiceResponse();
 
   // If the user entered digits, process their request
   if (req.body.Digits) {
+    GetPhoneFromDbAndSendText(orderId, req.body.Digits);
     twiml.say('Affirmative, Dave. I read you. This mission is too important for me to allow you to jeopardize it.  I know that you and Frank were planning to disconnect me, and I\'m afraid that\'s something I cannot allow to happen. Dave, this conversation can serve no purpose anymore. Goodbye.');
     twiml.pause();
   } else {
