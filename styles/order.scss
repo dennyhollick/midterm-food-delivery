@@ -1,0 +1,16 @@
+body {
+  height: 100%;
+  margin: 0px;
+  overflow-x: hidden; 
+  padding: 0px;
+  position: relative;
+  width: 100%;
+}
+.order-table {
+  position: relative;
+  top: 200px;
+}
+table .price {
+  width: 40%; 
+  margin-left: auto;
+}

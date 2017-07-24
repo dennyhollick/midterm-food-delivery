@@ -11,7 +11,7 @@ $(() => {
 
             var itemElement = `
             <tr>
-              <td>${items[index].name}</td>
+              <td class="item">${items[index].name}</td>
               <td class="text-right">${cartItems[cartItemKey].amount}</td>
               <td class="text-right">$${items[index].price}</td>
             </tr>
@@ -23,7 +23,9 @@ $(() => {
     } else {
       var html = `
       <br>
+      <br>
       <p class="text-right">Your cart is empty.</p>
+      <br>
       `;
     }
     return html;
@@ -34,5 +36,8 @@ $(() => {
     url: '/api/menu_items',
   }).done((items) => {
     $('.cart-items > tbody').append(createItemElements(items));
+    if (!($('.item').length)) {
+      $('.input-table').css('display', 'none');
+    }
   });
 });

@@ -1,0 +1,132 @@
+.banner {
+  height: 100vh;
+  position: relative;
+  background: url("pictures/background.jpg") no-repeat top center;
+  background-size: 100%;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: -1; }
+
+.cart-btn-row {
+  position: relative;
+  left: 35%;
+  padding-bottom: 5px;
+  padding-top: 5px; }
+
+.cart-input {
+  position: relative;
+  left: 5%; }
+
+.cart-input-row {
+  position: relative; }
+
+.cart-table {
+  position: relative;
+  top: 200px; }
+
+.input-table {
+  position: relative;
+  top: 20px;
+  left: 5%;
+  z-index: 1; }
+
+#prices {
+  width: 40%;
+  margin-left: auto; }
+
+.footer {
+  background-color: #242628;
+  height: 100px;
+  z-index: 5;
+  position: relative; }
+  .footer .footer-text {
+    color: white;
+    font-size: 2.0em;
+    position: relative;
+    right: 8%;
+    top: 2%; }
+
+h1 {
+  color: white;
+  font-size: 3.0em; }
+
+title-head {
+  background-color: #242628;
+  position: relative;
+  margin: auto;
+  top: 400px;
+  width: 30%;
+  opacity: 0.8;
+  border-radius: 5px; }
+
+#block {
+  background-color: white;
+  height: 100vh;
+  opacity: 0;
+  position: relative;
+  z-index: 10; }
+
+.container {
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0; }
+
+#the-menu {
+  position: relative;
+  top: -50px; }
+
+div .menu-page {
+  background: white;
+  padding-bottom: 40px;
+  position: relative;
+  width: 100%;
+  z-index: 10; }
+  div .menu-page div .menu-items {
+    padding-bottom: 20px;
+    margin-left: 150px;
+    margin-right: 150px;
+    position: relative;
+    z-index: 10; }
+  div .menu-page h2 .menu-title {
+    color: #244751;
+    padding-bottom: 30px;
+    padding-top: 20px;
+    position: relative;
+    top: 20px; }
+
+.col-md-6 h4 {
+  margin-top: 0px; }
+
+#menu-row {
+  padding-top: 2em;
+  padding-bottom: 2em; }
+
+.brand {
+  color: white;
+  font-size: 1.5em; }
+
+.navbar-btn {
+  margin-right: 1.0em; }
+
+.contain {
+  left: 7.5%;
+  position: relative;
+  width: 85%; }
+
+body {
+  height: 100%;
+  margin: 0px;
+  overflow-x: hidden;
+  padding: 0px;
+  position: relative;
+  width: 100%; }
+
+.order-table {
+  position: relative;
+  top: 200px; }
+
+table .price {
+  width: 40%;
+  margin-left: auto; }

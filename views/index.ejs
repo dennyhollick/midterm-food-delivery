@@ -4,92 +4,36 @@
 <head>
   <title>Welcome to Eatr</title>
   <% include ./partials/_head %>
-
-<style>
-  .banner {
-    /* background: url('https://www.scandichotels.com/imagevault/publishedmedia/qn6infvg30381stkubky/scandic-sundsvall-city-restaurant-verket-10.jpg') no-repeat top center; 
-    background-size: 100%;  */
-    height: 100vh; 
-    position: relative;
-    top: 20px;
-    z-index: -1;
-  }
-  .hero-img {
-    background: url('https://www.scandichotels.com/imagevault/publishedmedia/qn6infvg30381stkubky/scandic-sundsvall-city-restaurant-verket-10.jpg') no-repeat top center; 
-    background-size: 100%;     
-    position: fixed;
-    width: 100%; 
-    z-index: -1;
-  }
-  .menu-items {
-    padding-bottom: 20px;
-    margin-left: 150px;
-    margin-right: 150px;
-    position: relative;
-    z-index: 10;
-  }
-  .menu-page {
-    background: white;
-    position: relative;
-    z-index: 10;
-    padding-bottom: 40px;
-  }
-  .menu-title {
-    padding-bottom: 30px;
-    padding-top: 20px;
-    position: relative;
-    top: 20px;
-  }
-  #menu {
-    background-color: rgb(255, 255, 255);
-    opacity: 0;
-    z-index: 10;
-    position: relative;
-    top: -50px;
-  }
-  @media (min-width: 1100px) {
-      .menu-row {
-        width: 120%;
-        position: relative;
-        left: -100px;
-      }
-  }
-  .footer {
-  background-color:black;
-  height: 100px;
-  z-index: 5;
-  position: relative;
-  }
-  .footer-text {
-    color: white;
-    font-size: 2.0em;
-    position: relative;
-    right: 8%;
-    top: 2%;
-  }
-</style>
-
 </head>
 
 <body>
+
   <header>
     <% include partials/_header %>
   </header>  
-
-  <div class="banner">
-    <div class="hero-img"></div>
-  </div>
-
-  <section id="menu"></section>  
-
-  <section class="container-fluid menu-page">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <h1 class="menu-title">Our Menu</h1>
+  <section class="banner">
+      <div class="text-center title-head" style="background-color: #242628; position: relative; margin: auto; top: 300px; width: 30%; opacity: 0.8; border-radius: 5px;">
+        <br>
+          <h1>Welcome to Eatr</h1>
+        <br>
       </div>
-    </div>
-    <div class="menu-items">
-      <!-- Menu items get appended here-->
+  </section>
+
+  <section id="block"></section> 
+  
+  <section id="the-menu"></section>
+  <section class="container"> 
+    <div id="menu">
+      <div class="menu-page">
+        <div class="row">
+          <div class="col-md-12 text-center title">
+            <h2 class="menu-title">Our Menu</h1>
+          </div>
+        </div>
+        <div class="menu-items">
+          <!-- Menu items get appended here-->
+        </div>
+      </div>
     </div>
   </section>
 
