@@ -43,3 +43,27 @@ THEN start working with your cloned repository:
 - Pg
 - Sweet Alert
 - Twilio
+
+## Known Issues
+
+- No logic to handle invalid inputs from Restaurant
+- No logic to handle hangups from Restaurant
+- No sanitization or standardization of input text and name from user
+- Cart does not clear if user hits the back button after submitting an order
+- No ability to reject an order
+- `HAL 9000` has injected himself into our system and taken it over on the phone call.
+- No web response to user when an restaurant has accepted an order, only by SMS.
+- No logic to handle an undelivered SMS with pickup time. (eg, user is using a landline.)
+
+## Future Additions
+
+- Payment processing
+- Login/Reg
+- Notes from the user
+- Customization of order
+- Web notification of acceptance 
+- Ability for restaurant to see a list of orders previously made
+- Ability to reject an order
+- Ability for restaurant to change menu items
+- Ability for restaurant to see and accept orders incoming from a web interface
+
