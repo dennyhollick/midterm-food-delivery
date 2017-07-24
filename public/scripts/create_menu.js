@@ -1,4 +1,3 @@
-
 $(document).ready(() => {
   // Creates a single menu element for a row
 
