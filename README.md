@@ -26,9 +26,15 @@ THEN start working with your cloned repository:
 11. Test that ngrok is also working by visiting your Ngrok URL.
 
 ## Final Product
+<<<<<<< HEAD
 !["The main page of Eatr"](The Main Page)
 !["Our Menu"](Men)
 !["Your current cart"](The Cart)
+=======
+!["The main page of Eatr"](https://github.com/dennyhollick/midterm-food-delivery/blob/master/docs/Screen%20Shot%202017-07-24%20at%2010.49.02%20AM.png?raw=true)
+!["Our Menu"](https://github.com/dennyhollick/midterm-food-delivery/blob/master/docs/Screen%20Shot%202017-07-24%20at%2010.49.21%20AM.png?raw=true)
+!["Your current cart"](https://github.com/dennyhollick/midterm-food-delivery/blob/master/docs/Screen%20Shot%202017-07-24%20at%2010.49.45%20AM.png?raw=true)
+>>>>>>> master
 
 ## Dependencies
 
