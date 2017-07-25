@@ -1,4 +1,6 @@
 $(() => {
+  // Returns an object containing the name of the item and the amount ordered
+
   function items() {
     const arr = Object.keys(JSON.parse(window.localStorage.getItem('cart')));
     const obj = {};
@@ -11,18 +13,22 @@ $(() => {
 
   $('body').on('submit', '#order', (e) => {
     e.preventDefault();
-    if (isNaN(Number($('.cart-input-phone').val()))) {
+    const phone = $('.cart-input-phone').val();
+    const name = $('.cart-input-name').val();
+    // Logic for checking if phone number input is a line of numbers
+    if (isNaN(Number(phone)) || phone.length < 7) {
       swal('Invalid Phone Number.', 'Please try again.', 'error');
       return;
     }
-    if (!($('.cart-input-name').val()) || !($('.cart-input-phone').val())) {
+    // Logic checking for input
+    if (!(name) || !(phone)) {
       swal('Invalid Name or Number.', 'Please try again.', 'error');
       return;
     }
     window.location.replace('/order');
     const data = {
-      name: $('.cart-input-name').val(),
-      phone: $('.cart-input-phone').val(),
+      name,
+      phone,
       cart: items(),
     };
     $.post({
