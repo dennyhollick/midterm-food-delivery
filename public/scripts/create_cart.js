@@ -1,4 +1,6 @@
 $(() => {
+  // Creates the template for cart elements
+
   function createItemElements(items) {
     let html = '';
     const cartItems = JSON.parse(window.localStorage.getItem('cart'));
@@ -31,11 +33,15 @@ $(() => {
     return html;
   }
 
+  // Appends cart elements to cart table
+
   $.ajax({
     method: 'GET',
     url: '/api/menu_items',
   }).done((items) => {
     $('.cart-items > tbody').append(createItemElements(items));
+    // Logic to check if items exist in cart
+
     if (!($('.item').length)) {
       $('.input-table').css('display', 'none');
     }

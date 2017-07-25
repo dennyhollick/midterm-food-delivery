@@ -1,8 +1,9 @@
 $(() => {
-  $('.cart-btn').addClass('.return').on('click', (e) => {
-    localStorage.clear('cart');
-    if ($(this).hasClass('.cart-btn')) {
+  $('.cart-btn').on('click', () => {
+    window.localStorage.clear('cart');
     location.reload();
-    }
+  });
+  $('.return').on('click', () => {
+    window.localStorage.clear('cart');
   });
 });

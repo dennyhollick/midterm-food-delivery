@@ -1,5 +1,10 @@
 $(() => {
+  // Returns an object full of users cart items
+
   const cartItems = JSON.parse(window.localStorage.getItem('cart'));
+
+  // Function to add all item in cart together
+  // TODO: REFACTOR to reduce method
 
   function getSubTotal(items) {
     if (cartItems) {
@@ -15,6 +20,8 @@ $(() => {
       return subTotal;
     }
   }
+
+  // Creates template for the price of the order
 
   function createPriceElement(items) {
     if (cartItems) {
@@ -35,6 +42,7 @@ $(() => {
       return html;
     }
   }
+
   $.ajax({
     method: 'GET',
     url: '/api/menu_items',
