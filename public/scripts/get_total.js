@@ -4,8 +4,8 @@ $(() => {
   function getSubTotal(items) {
     if (cartItems) {
       let subTotal = 0.00;
-      for (var cartItemKey of Object.keys(cartItems)) {
-        for (var itemKey = 0; itemKey < items.length; itemKey++) {
+      for (let cartItemKey of Object.keys(cartItems)) {
+        for (let itemKey = 0; itemKey < items.length; itemKey += 1) {
           if (cartItemKey == items[itemKey].name) {
             let index = itemKey;
             subTotal += items[index].price * cartItems[cartItemKey].amount;
